@@ -1,0 +1,76 @@
+<div class="row">
+<div class="clearfix" style="padding-bottom: 5%"></div>
+    <div class="col-md-8 col-sm-8 col-xs-8 col-xs-offset-2 col-md-offset-2 col-sm-offset-2 bg-white">
+
+    <!--
+    Create your Add and Edit Forms here.
+    Validate the form fields in angular
+    Show validation errors under each of the fields in realtime
+    Enable the submit/update button only if the form data is valid 
+    -->
+<div class="row">
+<div class="col-md-12">
+<button class="btn pull-right btnRadius btn-default" ui-sref="list"><i class="fa fa-chevron-circle-left"></i>Back</button>
+</div>
+    </div>
+	
+	<div class="well">
+	<div class="row x_title">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+  <h4 ng-hide="update">Add Book </h4><h4 ng-show="update">Update Book </h4></div></div>
+  <div class="row x_title">
+  <div class="alert alert-success" id="success-create" style="display:none;">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    Successfully Created
+</div>
+ <div class="alert alert-success" id="success-update" style="display:none;">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    Successfully Updated
+</div>
+  <form name="createForm">
+  <div class="form-group row" ng-class="{ 'has-error': createForm.name.$touched && createForm.name.$invalid }">
+    <label for="name" class="col-md-3 col-sm-3 col-xs-3 col-form-label">Name*</label>
+    <div class="col-md-9 col-sm-9 col-xs-9">
+      <input type="text" class="form-control" ng-model="name" id="name" name="name" value=""  required>
+	  <em ng-show="createForm.name.$touched && createForm.name.$invalid" class="help-block">Name is required</em>
+    </div>
+  </div>
+
+   <div class="form-group row" ng-class="{ 'has-error': createForm.category.$touched && createForm.category.$invalid }">
+    <label for="category" class="col-md-3 col-sm-3 col-xs-3 col-form-label">Category*</label>
+    <div class="col-md-9 col-sm-9 col-xs-9">
+      <input type="text" class="form-control" id="category" ng-model="category" name="category"  required >
+	  <em ng-show="createForm.category.$touched && createForm.category.$invalid" class="help-block">Category is required</em>
+    </div>
+  </div>
+
+   <div class="form-group row" ng-class="{ 'has-error': createForm.price.$touched && createForm.price.$invalid }">
+    <label for="price" class="col-md-3 col-sm-3 col-xs-3 col-form-label">Price*</label>
+    <div class="col-md-9 col-sm-9 col-xs-9">
+      <input type="number" class="form-control" id="price" ng-model="price" name="price" required>
+	  <em ng-show="createForm.price.$touched && createForm.price.$invalid" class="help-block">Price is required</em>
+    </div>
+  </div>
+  <div class="form-group row" ng-class="{ 'has-error': createForm.description.$touched && createForm.description.$invalid }">
+    <label for="price" class="col-md-3 col-sm-3 col-xs-3 col-form-label">Description*</label>
+    <div class="col-md-9 col-sm-9 col-xs-9">
+      <textarea id="description" ng-model="description" class="form-control" name="description" required></textarea>
+	  <em ng-show="createForm.description.$touched && createForm.description.$invalid" class="help-block">Description is required</em>
+    </div>
+  </div>
+</form>
+  
+  
+  </div>
+  <div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12 col-xs-offset-2 col-md-offset-2 col-sm-offset-2">
+ <button class="btn btn-danger" ng-click="cancel();">Cancel</button>
+
+  <button class="btn btn-success" ng-click="create();" ng-disabled="createForm.$invalid" ng-hide="update">Submit</button>
+   <button class="btn btn-success" ng-click="update();" ng-disabled="createForm.$invalid" ng-show="update">Submit</button>
+   </div>
+  </div> 
+</div>
+</div>
+<div class="clearfix"></div>
+</div>

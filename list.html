@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12" style="background-color: white">
+        <div class="row x_title">
+		<button class="btn btn-default pull-right btnRadius" ui-sref="create"><i class="fa fa-plus-circle">Add Book</i></button> 
+            <!-- add Book button-->
+
+            <!--
+
+             Write Your Code Here To Show the Add Book button as shown in requirement document.
+
+               upon cliking this button app should navigate to create page(create state)
+
+             -->
+
+            <!--End Of add Book button-->
+            <div class="col-md-6">
+                <h3>Book List <small></small></h3>
+				<div class="alert alert-success" id="success-alert" style="display:none;">
+					<button type="button" class="close" data-dismiss="alert">x</button>
+					Successfully Removed
+				</div>
+                <!--
+
+                Write Your Code Here To Show alert messages as shown in requirement document.
+
+               -->
+            </div>
+        </div>
+
+
+	<div class="row">
+				<div class="col-md-3 col-sm-3 col-xs-3">
+					<div class="list-group">
+						<a class="list-group-item"  ng-class="{'active':selectedCategory === category}" ng-click="filterCategory(category);" ng-repeat="category in uniqueCategories">{{category}}
+						</a>
+					</div>
+					<!--Write Your Code Here To List The Book Categories as shown in requirement document-->
+				</div>
+				 <div class="col-md-9 col-sm-9 col-xs-9">
+						 <div class="row">
+							<div class="col-xs-12 col-md-12">
+							  <div class="input-group">
+								<input type="text" class="form-control" placeholder="Search for..." id="txtSearch" ng-model="SearchText"/>
+								<div class="input-group-btn">
+								  <button class="btn btn-default" ng-click="">
+									<span class="fa fa-search"></span>
+								  </button>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						<table class="table  table-bordered table-hover ">
+							<thead>
+								<tr>
+									<th class="col-md-2 col-sm-2 col-xs-2">Name</th>
+									<th class="col-md-2 col-sm-2 col-xs-2">Category</th>
+									<th class="col-md-4 col-sm-4 col-xs-4">Description</th>
+									<th class="col-md-2 col-sm-2 col-xs-2">Price</th>
+									<th class="col-md-2 col-sm-2 col-xs-2">Controls</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="book in books |filter:{category:selectedCat}| filter: SearchText track by book._id">
+									<td class="col-md-2 col-sm-2 col-xs-2">{{book.name}}</td>
+									<td class="col-md-2 col-sm-2 col-xs-2">{{book.category}}</td>
+									<td class="col-md-4 col-sm-4 col-xs-4">{{book.description}}</td>
+									<td class="col-md-2 col-sm-2 col-xs-2">{{book.price}}</td>
+									<td class="col-md-2 col-sm-2 col-xs-2">
+										<a class="link" ng-click="edit(book);" ><i class="fa fa-edit"></i>Edit</a>
+										<a class="link remove" ng-click="deleteConfirm(book._id);"><i class="fa fa-trash"></i>Remove</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+								<!--Write Your Code Here To List The Book Categories as shown in requirement document-->
+
+
+				</div>
+				<!--
+
+				Write Your Code here to list the Books as shown in requirement document
+
+
+				-->
+
+	</div>
+		 
+ 
+        <!--Modal Content for Remove-->
+
+        <!--
+
+        Writ your code for modal content here. this modal shuould open for confirmation when remove button clicked
+
+        -->
+        <!--End of Modal Content for Remove-->
+
+    </div>
+
+</div>
+<div class="modal fade " id="deleteConfirm" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+	  <div class="row">
+	  <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are You Sure Want to Remove?</h4>
+        </div>
+        
+        <div class="modal-footer">
+		 
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  <button type="button" class="btn btn-success" ng-click="delete_book()"data-dismiss="modal">Remove</button>
+        </div>
+		</div>
+		</div>
+      </div>
+    </div>
+  </div>
