@@ -17,12 +17,9 @@
 
     <!-- Custom Theme Style -->
     <link href="../res/styles/custom.min.css" rel="stylesheet">
-	 <link href="../res/styles/book-store.css" rel="stylesheet">
+     <link href="../res/styles/mystyle.css" rel="stylesheet">
     <script src="../libs/angular/angular.js"></script>
-
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	 <script src="../libs/angular-ui-router/release/angular-ui-router.js"></script>
-	
+    <script src="../libs/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../libs/angular-resource/angular-resource.js"></script>
     <script src="../res/scripts/index.js"></script>
 </head>
@@ -48,9 +45,9 @@
                     <div class="menu_section">
                         <!--<h3>General</h3>-->
                         <ul class="nav side-menu">
-                            <li><a href="" ui-sref="create" ><i class="fa fa-cubes"></i> Manage Products <span class="fa fa-chevron-down"></span></a>
+                            <li><a ui-sref = "list"><i class="fa fa-cubes"></i> Manage Books <span class="fa fa-chevron-down"></span></a>
                             </li>
-                            <li><a><i class="fa fa-users"></i> Manage Users <span class="fa fa-chevron-down"></span></a>
+                            <li><a ui-sref = "create"><i class="fa fa-users"></i> Manage Users <span class="fa fa-chevron-down"></span></a>
 
                             </li>
                             <li><a><i class="fa fa-credit-card"></i> Manage Payments <span class="fa fa-chevron-down"></span></a>
@@ -88,6 +85,11 @@
 
         <!-- page content -->
         <div class="right_col" role="main" ui-view="" style="min-height: 640px">
+
+
+
+
+
 
         </div>
         <!-- /page content -->
